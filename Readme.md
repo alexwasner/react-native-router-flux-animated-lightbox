@@ -13,3 +13,14 @@ This uses an fork of `ReactTransitionGroup` to animate things when views are ent
 `CustomAnimationView` is an animated component that scales up on mount and transitions down after complete.
 
 To get the TransitionOut to trigger, you have to remove the component from the View before calling `Actions.pop`. I added this to `BaseModal` and you can trigger it with `this.refs.modal.pop()`. If you pass a different `outDuration` to the `BaseModal`, it will automatically adjust the setTimeout for calling `Actions.pop`
+
+Add it to your project's Router like this:  
+
+```<Router createReducer={reducerCreate}>
+  <Scene key='lightbox' lightbox>
+    <Scene key='modal' modal hideNavBar>
+    	...
+    </Scene>
+    <Scene key="example" hideNavBar hideTabBar component={ExampleView}/>
+  </Scene>
+</Router>```
